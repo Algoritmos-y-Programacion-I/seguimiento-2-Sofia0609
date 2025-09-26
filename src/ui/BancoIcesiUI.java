@@ -9,7 +9,10 @@ public class BancoIcesiUI {
      * Agregue los atributos (relaciones) necesarios para conectar esta clase con el modelo.
      */
 
+    int nclientes = 0;
+
     private Scanner input;
+    private BancoIcesiController controller;
 
     public static void main(String[] args) {
 
@@ -86,6 +89,26 @@ public class BancoIcesiUI {
 
     public void registrarCliente() {
 
+        System.out.println("Cuantos Clientes Desea Registrar?: ");
+        nclientes = input.nextInt();
+        input.nextLine(); 
+        controller = new BancoIcesiController(nclientes);
+
+        for (int i = 0; i < controller.getCliente().length; i++) {
+
+            System.out.println("Por favor ingresa tu nombre " + (i + 1));
+            String nombre = input.nextLine();
+
+            System.out.println("Por favor ingresa tu edad" + (i + 1));
+            int edad = input.nextInt();
+            input.nextLine();
+            
+            System.out.println("Por favor su cedula " + (i + 1));
+            String cedula  = input.nextLine();
+
+
+            controller.agregarCuentaCliente(nombre, edad, cedula);
+        }
     }
 
     public void asignarCuentaBancariaCliente() {

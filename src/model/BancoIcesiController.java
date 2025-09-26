@@ -7,7 +7,19 @@ public class BancoIcesiController {
      * Agregue los atributos (relaciones) necesarios para satisfacer los requerimientos.
      */
 
-    public BancoIcesiController(){
+    private Cliente[] clientes;
+
+    public BancoIcesiController(int nclientes){
+        clientes = new Cliente[nclientes]
+    }
+
+    public Cliente[] getCliente() {
+        return clientes;
+    }
+
+    public void setCliente(Cliente[] clientes) {
+        this.clientes = clientes;
+    }
 
     }
 
@@ -21,7 +33,14 @@ public class BancoIcesiController {
      */
     public void agregarCuentaCliente() {
 
+        for (int i = 0; i < clientes.legth; i++){
+            if(clientes[i]) {
+                clientes[i] = new clientes(nombre, edad, cedula);
+            }
+        }
+
     }
+
 
    
     public void depositarDineroCuenta() {
@@ -33,10 +52,9 @@ public class BancoIcesiController {
 
     }
 
-    public void getClienteList() {
+    public Cliente[] getClienteList() {
+
+        return clientes;
 
     }
 
-   
-
-}
